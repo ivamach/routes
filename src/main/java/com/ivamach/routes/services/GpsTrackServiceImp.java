@@ -42,19 +42,19 @@ public class GpsTrackServiceImp implements GpsTrackService {
   private List<GpsPoint> getGpsPoints(List<String> lines) {
     List<GpsPoint> gpsPoints = new ArrayList<>();
     for (int line = 1; line < lines.size(); line++) {
-      String[] coords = lines.get(line).split(",");
+      String[] coords = lines.get(line).split(";");
       gpsPoints.add(
-              new GpsPoint(
-                      Double.parseDouble(coords[0]),
-                      Double.parseDouble(coords[1]),
-                      Double.parseDouble(coords[2])));
+          new GpsPoint(
+              Double.parseDouble(coords[0]),
+              Double.parseDouble(coords[1]),
+              Double.parseDouble(coords[2])));
     }
     return gpsPoints;
   }
 
   private List<String> gpsPointsToList(List<GpsPoint> gpsPoints) {
     List<String> lines = new ArrayList<>();
-    lines.add("x,y,t");
+    lines.add("x;y;t");
     for (GpsPoint gpsPoint : gpsPoints) {
       lines.add(gpsPoint.toString());
     }
