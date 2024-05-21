@@ -13,4 +13,10 @@ public class GpsPoint {
   private double x;
   private double y;
   private double t;
+
+  @Override
+  public String toString() {
+    return x + "," + y + "," + t;
+  }
+
 }
